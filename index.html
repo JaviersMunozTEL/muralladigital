@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muralla Digital Consultores | Seguridad de la información y ciberseguridad</title>
+<meta name="description" content="Consultoría en seguridad de la información, ISO 27001, redes y ciberseguridad para pymes en Bogotá.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#EEF1F0;--surface:#F8FAF9;--ink:#17262E;--muted:#4B5E67;--line:#C5D0D2;
+  --brick:#CBD6D9;--gap:#B87908;--ok:#1E8A6E;--btn:#17262E;--btn-ink:#EEF1F0;
+  --head:"Archivo","Arial Narrow",Arial,sans-serif;--text:"Source Sans 3","Segoe UI",Arial,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){color-scheme:dark;--bg:#0E1A21;--surface:#14252E;--ink:#E6EDEE;--muted:#9DB0B7;--line:#2A3E49;--brick:#243742;--gap:#E3A92F;--ok:#3BB391;--btn:#E6EDEE;--btn-ink:#0E1A21}
+}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0E1A21;--surface:#14252E;--ink:#E6EDEE;--muted:#9DB0B7;--line:#2A3E49;--brick:#243742;--gap:#E3A92F;--ok:#3BB391;--btn:#E6EDEE;--btn-ink:#0E1A21}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.6 var(--text)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gap);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font:800 19px/1 var(--head);text-decoration:none;letter-spacing:.01em}
+nav{display:flex;gap:22px;font-size:16px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+h1,h2,h3{font-family:var(--head);margin:0;line-height:1.08}
+h1{font-weight:800;font-size:clamp(34px,5.6vw,60px);max-width:15em}
+h2{font-weight:800;font-size:clamp(26px,3.6vw,38px);margin-bottom:14px}
+h3{font-weight:800;font-size:20px;margin-bottom:6px}
+p{margin:0 0 14px;max-width:62ch}
+.btn{display:inline-block;background:var(--btn);color:var(--btn-ink);font:600 17px/1 var(--text);padding:15px 24px;border:0;border-radius:3px;text-decoration:none;cursor:pointer}
+.btn:hover{opacity:.9}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding:64px 0 72px}
+.hero p.lead{font-size:20px;color:var(--muted);margin:20px 0 28px}
+.wall{display:flex;flex-direction:column;gap:4px}
+.row{display:flex;gap:4px}
+.b{flex:1;height:30px;background:var(--brick);border-radius:2px}
+.b.half{flex:.5}
+.b.gap{background:transparent;border:2px dashed var(--gap);transition:background .25s,border-color .25s}
+.b.gap.on{background:var(--ok);border:2px solid var(--ok)}
+.fix{display:grid;gap:8px;margin-top:18px}
+.fix button{display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;font:600 16px/1.3 var(--text);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:11px 14px;cursor:pointer}
+.fix button span{font-weight:400;color:var(--gap);white-space:nowrap}
+.fix button[aria-pressed="true"] span{color:var(--ok)}
+.status{margin:12px 0 0;font-size:16px;color:var(--muted)}
+section{padding:64px 0;border-top:1px solid var(--line)}
+.svc{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+.svc div{padding:18px 0;border-top:1px solid var(--line)}
+.svc p{margin:0;color:var(--muted)}
+.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s}
+.steps li{counter-increment:s;border-left:3px solid var(--ok);padding-left:16px}
+.steps li::before{content:counter(s);font:800 28px/1 var(--head);display:block;margin-bottom:8px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.facts{margin:0;padding:0;list-style:none}
+.facts li{padding:12px 0;border-top:1px solid var(--line)}
+.facts b{font-family:var(--head)}
+form{display:grid;gap:14px;max-width:560px}
+label{font-weight:600;font-size:16px;display:grid;gap:6px}
+input,textarea{font:400 17px/1.4 var(--text);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:12px;width:100%}
+textarea{min-height:120px;resize:vertical}
+.small{font-size:14.5px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:15px}
+@media (max-width:820px){
+  .hero,.about,.svc{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  nav{gap:14px;font-size:15px}
+  .hide-s{display:none}
+}
+@media (max-width:480px){.steps{grid-template-columns:1fr}.wrap{padding:0 18px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.b.gap{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#inicio">Muralla Digital</a>
+    <nav aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#nosotros" class="hide-s">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero" id="inicio">
+  <div>
+    <h1>Proteja la información de su empresa antes de que alguien encuentre la brecha.</h1>
+    <p class="lead">Ayudamos a pymes de Bogotá a saber qué activos tienen, qué riesgos los amenazan y cómo protegerlos, con una guía basada en ISO/IEC 27001.</p>
+    <a class="btn" href="#contacto">Solicitar diagnóstico</a>
+  </div>
+  <div>
+    <div class="wall" id="wall" role="img" aria-label="Muro con cuatro brechas que se pueden cerrar con los botones de abajo"></div>
+    <div class="fix" id="fix"></div>
+    <p class="status" id="status" aria-live="polite">Una empresa sin protección suele tener varias brechas abiertas. Cierre las cuatro.</p>
+  </div>
+</div>
+
+<section id="servicios">
+  <div class="wrap">
+    <h2>Servicios</h2>
+    <p>Empezamos por entender qué hay que proteger y luego reforzamos la red.</p>
+    <div class="svc">
+      <div><h3>Diagnóstico ISO/IEC 27001</h3><p>Medimos qué tan lejos está su empresa de la norma y le entregamos una hoja de ruta con prioridades.</p></div>
+      <div><h3>Inventario de activos y riesgos</h3><p>Identificamos su información, equipos y sistemas, y valoramos los riesgos de cada uno.</p></div>
+      <div><h3>Políticas de seguridad</h3><p>Redactamos políticas y procedimientos claros que su gerencia pueda aprobar y su equipo pueda cumplir.</p></div>
+      <div><h3>Protección de datos personales</h3><p>Le ayudamos a cumplir la Ley 1581 de 2012: política de tratamiento y gestión de sus bases de datos.</p></div>
+      <div><h3>Redes y firewall</h3><p>Diseñamos la red, la segmentamos con VLAN y configuramos el firewall con reglas documentadas.</p></div>
+      <div><h3>Monitoreo con PRTG</h3><p>Dejamos su red monitoreada para detectar fallos de disponibilidad y rendimiento antes que sus usuarios.</p></div>
+      <div><h3>Concientización</h3><p>Talleres cortos y simulacros de phishing para que su equipo reconozca los engaños más comunes.</p></div>
+      <div><h3>Pruebas de vulnerabilidades</h3><p>Revisamos su red desde afuera y desde adentro, y le entregamos hallazgos con recomendaciones.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="proceso">
+  <div class="wrap">
+    <h2>Cómo trabajamos</h2>
+    <p>Un proceso corto, con entregables claros en cada etapa.</p>
+    <ol class="steps">
+      <li><h3>Diagnóstico</h3><p>Revisamos su situación actual y sus activos.</p></li>
+      <li><h3>Plan</h3><p>Priorizamos los riesgos y definimos qué hacer primero.</p></li>
+      <li><h3>Implementación</h3><p>Aplicamos controles, políticas y ajustes de red.</p></li>
+      <li><h3>Seguimiento</h3><p>Medimos resultados y actualizamos los riesgos.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="nosotros">
+  <div class="wrap about">
+    <div>
+      <h2>Nosotros</h2>
+      <p>Muralla Digital Consultores S.A.S. nace en Bogotá para llevar la seguridad de la información a empresas que aún no tienen un área dedicada a ella.</p>
+      <p>Lo dirige Javier Stiven Muñoz Cortes, estudiante de último tramo de Ingeniería en Telecomunicaciones, con experiencia en gestión de activos y riesgos para una entidad pública del sector defensa.</p>
+    </div>
+    <ul class="facts">
+      <li><b>Gestión de seguridad.</b> Inventario de activos y riesgos bajo ISO/IEC 27001.</li>
+      <li><b>Redes.</b> Topologías con VLAN, firewalls y monitoreo con PRTG.</li>
+      <li><b>Ciberseguridad.</b> Análisis de tráfico con Wireshark y laboratorios de suplantación de usuarios.</li>
+      <li><b>Formación.</b> Curso “Seguridad informática: defensa contra las artes oscuras digitales”.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <h2>Solicite su diagnóstico</h2>
+    <p>Cuéntenos de su empresa y le respondemos para acordar una primera conversación.</p>
+    <form id="form">
+      <label>Nombre<input name="n" required autocomplete="name"></label>
+      <label>Empresa<input name="e" autocomplete="organization"></label>
+      <label>Correo electrónico<input name="c" type="email" required autocomplete="email"></label>
+      <label>¿Qué le preocupa?<textarea name="m" required></textarea></label>
+      <button class="btn" type="submit">Enviar mensaje</button>
+      <p class="small" id="sent" aria-live="polite">Al enviar, se abrirá su programa de correo con el mensaje listo. Usamos sus datos solo para responderle, conforme a la Ley 1581 de 2012.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Muralla Digital Consultores S.A.S. Bogotá, Colombia. contacto@muralladigital.co</div>
+</footer>
+
+<script>
+(function(){
+  var gaps={"1-5":0,"3-2":1,"4-6":2,"6-3":3};
+  var labels=["Inventariar los activos","Segmentar la red con VLAN","Configurar el firewall","Escribir las políticas"];
+  var state=[false,false,false,false];
+  var wall=document.getElementById("wall"),fix=document.getElementById("fix"),st=document.getElementById("status");
+  var cells=[];
+  for(var r=0;r<8;r++){
+    var row=document.createElement("div");row.className="row";
+    if(r%2){var h=document.createElement("div");h.className="b half";row.appendChild(h)}
+    for(var c=0;c<7;c++){
+      var b=document.createElement("div");b.className="b";
+      var k=r+"-"+c;
+      if(gaps.hasOwnProperty(k)){b.classList.add("gap");cells[gaps[k]]=b}
+      row.appendChild(b);
+    }
+    if(r%2){var h2=document.createElement("div");h2.className="b half";row.appendChild(h2)}
+    wall.appendChild(row);
+  }
+  labels.forEach(function(t,i){
+    var btn=document.createElement("button");
+    btn.type="button";btn.setAttribute("aria-pressed","false");
+    btn.innerHTML=t+" <span>Abierta</span>";
+    btn.onclick=function(){
+      state[i]=!state[i];
+      cells[i].classList.toggle("on",state[i]);
+      btn.setAttribute("aria-pressed",state[i]);
+      btn.querySelector("span").textContent=state[i]?"Cerrada":"Abierta";
+      var n=state.filter(Boolean).length;
+      st.textContent=n===4?"Las cuatro brechas están cerradas. Así se ve una base de seguridad sólida.":"Brechas cerradas: "+n+" de 4.";
+    };
+    fix.appendChild(btn);
+  });
+  document.getElementById("form").addEventListener("submit",function(e){
+    e.preventDefault();
+    var f=e.target,body="Nombre: "+f.n.value+"\nEmpresa: "+f.e.value+"\nCorreo: "+f.c.value+"\n\n"+f.m.value;
+    window.location.href="mailto:contacto@muralladigital.co?subject="+encodeURIComponent("Solicitud de diagnóstico")+"&body="+encodeURIComponent(body);
+  });
+})();
+</script>
+</body>
+</html>
